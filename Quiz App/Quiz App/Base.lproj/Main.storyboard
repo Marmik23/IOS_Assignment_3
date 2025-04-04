@@ -22,7 +22,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Build The Question Bank"/>
                                 <connections>
-                                    <action selector="buildQuestionBankTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f1o-2z-p94"/>
                                     <segue destination="LQv-RL-30M" kind="show" identifier="toQuestionBank" id="k2n-L5-mfA"/>
                                 </connections>
                             </button>
@@ -174,7 +173,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fKl-Qe-mEA" customClass="Quest">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" id="fKl-Qe-mEA" customClass="Quest">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fKl-Qe-mEA" id="U8J-IN-8FY">
@@ -192,7 +191,7 @@
                         <barButtonItem key="rightBarButtonItem" title="   +   " id="8BY-yt-pKY">
                             <connections>
                                 <action selector="addQuestionTapped:" destination="LQv-RL-30M" id="6e1-gK-ybz"/>
-                                <segue destination="vfc-al-Qxm" kind="presentation" identifier="toQuestionBuilder" id="MBR-2c-9KO"/>
+                                <segue destination="vfc-al-Qxm" kind="presentation" identifier="toQuestionBuilder" modalPresentationStyle="fullScreen" id="MBR-2c-9KO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -209,7 +208,7 @@
             <objects>
                 <viewController id="vfc-al-Qxm" customClass="QuestionBuilderViewController" customModule="Quiz_App" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eE7-gl-bQa">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDL-Fr-e4c">
@@ -255,8 +254,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="6c8-Vy-jSn">
                                             <connections>
-                                                <action selector="doneTapped:" destination="vfc-al-Qxm" id="GFK-eB-sRU"/>
-                                                <segue destination="4oQ-fh-n7W" kind="unwind" unwindAction="unwindToQuestionBankWithSegue:" id="Lc7-hD-iEq"/>
+                                                <action selector="doneTapped:" destination="vfc-al-Qxm" id="TLw-cv-DUK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -267,15 +265,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="correctAnswerTextField" destination="hxa-JL-vrx" id="yqj-w5-bXa"/>
-                        <outlet property="incorrectAnswer1TextField" destination="m6h-kq-D8e" id="p3y-Q7-rga"/>
-                        <outlet property="incorrectAnswer2TextField" destination="J2x-Nf-cvQ" id="6WA-aP-zGy"/>
-                        <outlet property="incorrectAnswer3TextField" destination="WWZ-4V-NTz" id="0zy-2e-M8i"/>
-                        <outlet property="questionTextField" destination="XDL-Fr-e4c" id="sZl-VB-dsp"/>
+                        <outlet property="correctAnswerTextField" destination="hxa-JL-vrx" id="6ab-Jv-6g6"/>
+                        <outlet property="incorrectAnswer1TextField" destination="m6h-kq-D8e" id="b8g-fB-JN0"/>
+                        <outlet property="incorrectAnswer2TextField" destination="J2x-Nf-cvQ" id="Sz1-Pb-5pV"/>
+                        <outlet property="incorrectAnswer3TextField" destination="WWZ-4V-NTz" id="pFq-u0-27q"/>
+                        <outlet property="questionTextField" destination="XDL-Fr-e4c" id="1YL-An-Apo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z09-Rr-Qj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="4oQ-fh-n7W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2913.740458015267" y="-35.211267605633807"/>
         </scene>
@@ -303,7 +300,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

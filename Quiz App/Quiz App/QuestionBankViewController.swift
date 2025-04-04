@@ -7,7 +7,9 @@
 
 import UIKit
 
-class QuestionBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , AddingQuestionDelegate{
+  
+    
     
     @IBOutlet weak var tableView: UITableView!
     var questions: [Question] = []
@@ -16,13 +18,20 @@ class QuestionBankViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.reloadData()
     }
 
-    @IBAction func addQuestionTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toQuestionBuilder", sender: nil)
-    }
+//    @IBAction func addQuestionTapped(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "toQuestionBuilder", sender: nil)
+//    }
 
-    // TableView Data Source Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toQuestionBuilder" {
+            let destinationVC = segue.destination as! QuestionBuilderViewController
+            destinationVC.mydelegate = self
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
@@ -33,16 +42,14 @@ class QuestionBankViewController: UIViewController, UITableViewDelegate, UITable
         cell.textLabel?.text = question.questionText
         return cell
     }
-
-    // Unwind Segue to update question bank
-    @IBAction func unwindToQuestionBank(segue: UIStoryboardSegue) {
-        print("Unwind Segue Triggered")
-        if let sourceVC = segue.source as? QuestionBuilderViewController,
-           let newQuestion = sourceVC.newQuestion {
-            questions.append(newQuestion)
-            tableView.reloadData()
-            print("Unwinding with New Question: \(newQuestion)")
-            print("Questions Array After Append: \(questions)")
-        }
+    
+    func addingQuestionDoneCorrectly(q: Question) {
+        questions.append(q)
+        tableView.reloadData()
     }
+    
+    func addingQuestionHasCanceled() {
+        
+    }
+
 }
