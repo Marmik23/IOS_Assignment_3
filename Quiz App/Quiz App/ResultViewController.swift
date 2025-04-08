@@ -8,6 +8,7 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
 
@@ -20,8 +21,15 @@ class ResultViewController: UIViewController {
     }
 
     private func calculateAndDisplayResult() {
-        let score = Double(correctCount) / Double(totalQuestions) * 100
+        guard totalQuestions > 0 else {
+            resultLabel.text = "Quiz Completed!"
+            scoreLabel.text = "No questions were answered."
+            return
+        }
+
+        let scorePercentage = Double(correctCount) / Double(totalQuestions) * 100
         resultLabel.text = "Quiz Completed!"
-        scoreLabel.text = "Your score is \(String(format: "%.2f", score))%"
+        scoreLabel.text = "Your score is \(String(format: "%.2f", scorePercentage))%"
     }
 }
+

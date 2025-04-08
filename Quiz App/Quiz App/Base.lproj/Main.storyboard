@@ -22,6 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Build The Question Bank"/>
                                 <connections>
+                                    <action selector="buildQuestionBankTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YWg-sl-tq6"/>
                                     <segue destination="LQv-RL-30M" kind="show" identifier="toQuestionBank" id="k2n-L5-mfA"/>
                                 </connections>
                             </button>
@@ -32,7 +33,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start the Quiz"/>
                                 <connections>
-                                    <action selector="startQuizTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M2Y-2x-CbR"/>
+                                    <action selector="startQuizTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2P2-ko-Sr4"/>
                                     <segue destination="fwO-ZD-fPU" kind="show" identifier="toMyQuiz" id="6z8-Ef-dl5"/>
                                 </connections>
                             </button>
@@ -61,15 +62,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-70-iFF">
-                                <rect key="frame" x="16" y="254" width="361" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Option 1"/>
-                                <connections>
-                                    <action selector="answerSelected:" destination="fwO-ZD-fPU" eventType="touchUpInside" id="ORh-Tv-ouu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0x-2T-QgY">
                                 <rect key="frame" x="16" y="307" width="361" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,6 +93,15 @@
                                 <rect key="frame" x="16" y="222" width="361" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-70-iFF">
+                                <rect key="frame" x="16" y="264" width="361" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Option 1"/>
+                                <connections>
+                                    <action selector="answerSelected:" destination="fwO-ZD-fPU" eventType="touchUpInside" id="ORh-Tv-ouu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u1j-tM-V0l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,7 +114,7 @@
                         <outlet property="option4Button" destination="SN5-PI-xYK" id="n3u-z7-EVZ"/>
                         <outlet property="progressBar" destination="iy8-Ct-XE9" id="Urk-sh-6uH"/>
                         <outlet property="questionLabel" destination="0fc-9n-RfW" id="pqV-VF-Sbf"/>
-                        <segue destination="DPe-0D-mkf" kind="show" identifier="toResults" id="chW-Tj-PLG"/>
+                        <segue destination="DPe-0D-mkf" kind="show" identifier="toResults" id="5EL-yX-nk8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMG-Kt-NXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -148,8 +149,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="QA0-Mm-cj4"/>
                     <connections>
-                        <outlet property="resultLabel" destination="YLo-eq-iA4" id="zJM-kW-kw8"/>
-                        <outlet property="scoreLabel" destination="592-95-CZ5" id="hfQ-yz-fje"/>
+                        <outlet property="resultLabel" destination="YLo-eq-iA4" id="hwK-5w-huW"/>
+                        <outlet property="scoreLabel" destination="592-95-CZ5" id="jee-LC-Bk8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7g-ct-36l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
